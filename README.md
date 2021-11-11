@@ -1,4 +1,4 @@
-# fine-grained 对照实验结果 
+fine-grained 对照实验结果 
 ====
 在11.9日本质上共修改了之前代码的三个部分，分别是model部分，acc计算部分，以及dataset部分。之前代码使用的lr衰减方式是stepLR（每30个epoch）<br>
 通过对照实验，发现之前的代码出现问题的部分是model和acc计算的部分，只改变之前代码的acc计算部分，测试精度从67%提升到74%<br>

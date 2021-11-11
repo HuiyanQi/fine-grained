@@ -8,4 +8,5 @@ fine-grained 对照实验结果
 保持上一的设置不变，仅将lr改变为在每个batch内衰减，得到的结果为83.28%<br>
 保持上一的设置不变，仅将lr的衰减方式改变为stepLR（每30个epoch），得到的结果为%<br>
 ### 结论：
-之前代码出问题的部分在于acc的计算方式和model部分，
+之前代码出问题的部分在于acc的计算方式和model部分，通过对比之前代码的resnet.py和直接使用使用torchvision.models.resnet50(pretrained=True)，发现之前代码的在class ResNet中使用AdaptiveAvgPool2d((1,1))，而直接引用中使用nn.AvgPool2d(7)。
+现在在未加任何trick的情况下，使用余弦在每个batch内衰减得到了最好的结果。

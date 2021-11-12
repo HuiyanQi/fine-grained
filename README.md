@@ -9,7 +9,7 @@ fine-grained 对照实验结果
 保持上一的设置不变，仅将lr的衰减方式改变为stepLR（每30个epoch），得到的结果为81.89%<br>
 使用修改过后的acc和model部分，lr为在每个batch内进行余弦衰减，使用未修改过的dataset，最终得到的结果为82.83%<br>
 ### 结论：
-通过对比之前代码model部分的resnet.py和直接使用使用torchvision.models.resnet50(pretrained=True)，发现之前代码的在class ResNet中使用AdaptiveAvgPool2d((1,1))，而直接引用中使用nn.AvgPool2d(7)。<br>
+通过对比之前代码model部分的resnet.py和直接使用使用torchvision.models.resnet50(pretrained=True)，发现之前代码的在class ResNet中使用nn.AvgPool2d(7)，而直接使用torchvision.models.resnet50(pretrained=True)中是AdaptiveAvgPool2d((1,1))。<br>
 使用pandas读取数据会将准确率提升0.5%左右<br>
 现在在未加任何trick的情况下，使用余弦在每个batch内衰减得到了最好的结果。<br>
 
